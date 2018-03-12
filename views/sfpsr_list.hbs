@@ -1,0 +1,16 @@
+<h1>Short Format Pre-sentence Reports</h1>
+
+<table>
+
+<tbody>
+    {{#each documents}}
+        <tr>
+            <td>{{this.filename}}</td>
+            <td>{{this.onBehalfOfUser}}</td>
+            <td>{{this.crn}}</td>
+            <td><a href='/sfpsr_update?id={{this._id}}'>Update</a></td>
+            <td><a href='/pdf?id={{this._id}}'>View</a></td>
+        </tr>
+    {{/each}}
+</tbody>
+</table>

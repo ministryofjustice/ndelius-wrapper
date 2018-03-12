@@ -1,22 +1,25 @@
-var express = require('express');
-var path = require('path');
-var hbs = require('hbs');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var sassMiddleware = require('node-sass-middleware');
+const express = require('express')
+const path = require('path')
+const hbs = require('hbs')
+const favicon = require('serve-favicon')
+const logger = require('morgan')
+const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser')
+const sassMiddleware = require('node-sass-middleware')
 
-var index = require('./routes/index');
-var search = require('./routes/search');
-var sfpsr = require('./routes/sfpsr');
-var legacySearch = require('./routes/legacy_search');
-var addOffender = require('./routes/add_offender');
-var addContact = require('./routes/add_contact');
-var offenderDetails = require('./routes/offender_details');
+const index = require('./routes/index')
+const search = require('./routes/search')
+const sfpsr = require('./routes/sfpsr')
+const sfpsrList = require('./routes/sfpsr_list')
+const sfpsrUpdate = require('./routes/sfpsr_update')
+const pdf = require('./routes/pdf')
+const viewPdf = require('./routes/view_pdf')
+const legacySearch = require('./routes/legacy_search')
+const addOffender = require('./routes/add_offender')
+const addContact = require('./routes/add_contact')
+const offenderDetails = require('./routes/offender_details')
 
-
-var app = express();
+const app = express()
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -39,6 +42,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/search', search);
 app.use('/sfpsr', sfpsr);
+app.use('/sfpsr_list', sfpsrList);
+app.use('/sfpsr_update', sfpsrUpdate);
+app.use('/pdf', pdf);
+app.use('/view_pdf', viewPdf);
 app.use('/legacy_search', legacySearch);
 app.use('/add_offender', addOffender);
 app.use('/add_contact', addContact);
@@ -46,8 +53,8 @@ app.use('/offender_details', offenderDetails);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
+    const err = new Error('Not Found')
+    err.status = 404;
   next(err);
 });
 
