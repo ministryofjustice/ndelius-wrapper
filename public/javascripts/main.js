@@ -23,7 +23,7 @@ function receiveMessage(event)
         }
     } else {
         console.log(event.data)
-        window.location = '/'
+        window.location = '/sfpsr_list'
 
     }
 }
