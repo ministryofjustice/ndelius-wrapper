@@ -23,22 +23,22 @@ router.get('/', function(req, res, next) {
                 const offenderAddress = offender.contactDetails.addresses[0]
                 let addressAsLine = ''
                 if (offenderAddress.buildingName) {
-                    addressAsLine = addressAsLine + offenderAddress.buildingName + '\r'
+                    addressAsLine = addressAsLine + offenderAddress.buildingName + '\n'
                 }
                 if (offenderAddress.addressNumber) {
-                    addressAsLine = addressAsLine + offenderAddress.addressNumber + '\r'
+                    addressAsLine = addressAsLine + offenderAddress.addressNumber + '\n'
                 }
                 if (offenderAddress.streetName) {
-                    addressAsLine = addressAsLine + offenderAddress.streetName + '\r'
+                    addressAsLine = addressAsLine + offenderAddress.streetName + '\n'
                 }
                 if (offenderAddress.town) {
-                    addressAsLine = addressAsLine + offenderAddress.town + '\r'
+                    addressAsLine = addressAsLine + offenderAddress.town + '\n'
                 }
                 if (offenderAddress.county) {
-                    addressAsLine = addressAsLine + offenderAddress.county + '\r'
+                    addressAsLine = addressAsLine + offenderAddress.county + '\n'
                 }
                 if (offenderAddress.postcode) {
-                    addressAsLine = addressAsLine + offenderAddress.postcode + '\r'
+                    addressAsLine = addressAsLine + offenderAddress.postcode + '\n'
                 }
                 address = encodeURIComponent(encrypt(addressAsLine))
             }
