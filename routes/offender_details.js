@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
     request(es_url + '/offender/document/' + offenderId, function (err, response, body) {
         if (err) throw err;
         const document = JSON.parse(body)
-        res.render('offender_details', {offender: JSON.stringify(document._source, null, 4)  })
+        res.render('offender_details', {offenderId, offender: JSON.stringify(document._source, null, 4)  })
     });
 });
 

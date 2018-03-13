@@ -1,5 +1,10 @@
 <ul>
     <li><a href="/">Home</a></li>
     <li><a href="/search">National Search</a></li>
-    <li><a href="/sfpsr">Short Format Pre-sentence Report</a></li>
+
+    {{#if offenderId }}
+        <li><a href="/sfpsr?offenderId={{offenderId}}">Short Format Pre-sentence Report</a></li>
+    {{else}}
+        <li><a href="/sfpsr">Short Format Pre-sentence Report</a></li>
+    {{/if}}
 </ul>
