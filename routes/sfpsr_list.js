@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const {MongoClient, ObjectID} = require('mongodb')
-
+const moment = require('moment')
 
 router.get('/', function(req, res, next) {
     MongoClient.connect(process.env.ANALYTICS_MONGO_CONNECTION || "mongodb://localhost", function(err, db) {
@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
                     onBehalfOfUser: document.onBehalfOfUser,
                     crn: document.crn,
                     _id: document._id,
-                    timestamp: ObjectID(document._id).getTimestamp()
+                    timestamp: moment(ObjectID(document._id).getTimestamp()).format('DD/MM/YYYY')
                 }}) });
         });
     });

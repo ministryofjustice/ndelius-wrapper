@@ -12,6 +12,7 @@ const search = require('./routes/search')
 const sfpsr = require('./routes/sfpsr')
 const sfpsrList = require('./routes/sfpsr_list')
 const sfpsrUpdate = require('./routes/sfpsr_update')
+const sfpsrDelete = require('./routes/sfpsr_delete')
 const pdf = require('./routes/pdf')
 const viewPdf = require('./routes/view_pdf')
 const legacySearch = require('./routes/legacy_search')
@@ -44,6 +45,7 @@ app.use('/search', search);
 app.use('/sfpsr', sfpsr);
 app.use('/sfpsr_list', sfpsrList);
 app.use('/sfpsr_update', sfpsrUpdate);
+app.use('/sfpsr_delete', sfpsrDelete);
 app.use('/pdf', pdf);
 app.use('/view_pdf', viewPdf);
 app.use('/legacy_search', legacySearch);
