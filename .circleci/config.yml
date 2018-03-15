@@ -18,4 +18,40 @@ jobs:
 
     steps:
       - checkout
+      - run:
+          name: Zip up the app
+          command: |
+            mkdir ~/target
+            zip -r ~/target/ndelius-wrapper.zip .
+      - persist_to_workspace:
+            root: ~/target/
+            paths:
+              - ./ndelius-wrapper.zip
+      - store_artifacts:
+            path: ~/target
+            destination: zips
 
+  deploy:
+    docker:
+      - image: paulodiovani/aws-eb-cli
+    working_directory: ~/repo
+    steps:
+    - attach_workspace:
+        at: /workspace
+    - checkout
+    - run:
+        name: Deploy to Elastic Beanstalk
+        command: |
+            eb deploy --label $CIRCLE_BUILD_NUM
+
+workflows:
+    version: 2
+    build-deploy:
+        jobs:
+            - build
+            - deploy:
+                requires:
+                    - build
+                filters:
+                    branches:
+                      only: master
