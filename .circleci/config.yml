@@ -24,9 +24,9 @@ jobs:
             mkdir ~/target
             tar -zcvf ~/target/ndelius-wrapper.zip .
       - persist_to_workspace:
-            root: ./target/
+            root: ~/target/
             paths:
-              - ~/target/ndelius-wrapper.zip
+              - ./ndelius-wrapper.zip
 
   deploy:
     docker:
