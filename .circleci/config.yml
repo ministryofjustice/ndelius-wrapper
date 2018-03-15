@@ -21,12 +21,12 @@ jobs:
       - run:
           name: Zip up the app
           command: |
-            mkdir target
-            tar -zcvf target/ndelius-wrapper.zip .
+            mkdir ~/target
+            tar -zcvf ~/target/ndelius-wrapper.zip .
       - persist_to_workspace:
             root: ./target/
             paths:
-              - ./ndelius-wrapper.zip
+              - ~/target/ndelius-wrapper.zip
 
   deploy:
     docker:
