@@ -1,5 +1,5 @@
 branch-defaults:
-  254-auto-deploy:
+  master:
     environment: delius-wrapper
 environment-defaults:
   delius-wrapper:
