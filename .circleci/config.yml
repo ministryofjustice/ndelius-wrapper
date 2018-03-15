@@ -19,9 +19,9 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Zip up the app
-        command: |
-          tar -zcvf ndelius-wrapper.zip
+          name: Zip up the app
+          command: |
+            tar -zcvf ndelius-wrapper.zip
 
   deploy:
     docker:
