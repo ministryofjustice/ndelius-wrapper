@@ -27,6 +27,9 @@ jobs:
             root: ~/target/
             paths:
               - ./ndelius-wrapper.zip
+      - store_artifacts:
+            path: ~/target
+            destination: zips
 
   deploy:
     docker:
