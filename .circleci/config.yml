@@ -42,6 +42,7 @@ jobs:
     - run:
         name: Deploy to Elastic Beanstalk
         command: |
+            ls /workspace
             export PATH=$PATH:~/.local/bin/
             eb deploy --label $CIRCLE_BUILD_NUM
 
