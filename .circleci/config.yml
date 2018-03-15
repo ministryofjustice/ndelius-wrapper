@@ -19,7 +19,7 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Install sbt into build container
+        name: Zip up the app
         command: |
           tar -zcvf ndelius-wrapper.zip
 
