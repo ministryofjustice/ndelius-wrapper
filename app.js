@@ -19,6 +19,10 @@ const legacySearch = require('./routes/legacy_search')
 const addOffender = require('./routes/add_offender')
 const addContact = require('./routes/add_contact')
 const offenderDetails = require('./routes/offender_details')
+const searchAnalytics = require('./routes/search_analytics')
+const feedback = require('./routes/feedback')
+const healthcheck = require('./routes/healthcheck')
+const analytics = require('./routes/analytics')
 
 const app = express()
 
@@ -51,7 +55,11 @@ app.use('/view_pdf', viewPdf);
 app.use('/legacy_search', legacySearch);
 app.use('/add_offender', addOffender);
 app.use('/add_contact', addContact);
-app.use('/offender_details', offenderDetails);
+app.use('/offender_details', offenderDetails)
+app.use('/search_analytics', searchAnalytics)
+app.use('/feedback', feedback)
+app.use('/healthcheck', healthcheck)
+app.use('/analytics', analytics)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
