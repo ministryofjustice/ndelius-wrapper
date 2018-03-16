@@ -22,6 +22,7 @@ const offenderDetails = require('./routes/offender_details')
 const searchAnalytics = require('./routes/search_analytics')
 const feedback = require('./routes/feedback')
 const healthcheck = require('./routes/healthcheck')
+const analytics = require('./routes/analytics')
 
 const app = express()
 
@@ -58,6 +59,7 @@ app.use('/offender_details', offenderDetails)
 app.use('/search_analytics', searchAnalytics)
 app.use('/feedback', feedback)
 app.use('/healthcheck', healthcheck)
+app.use('/analytics', analytics)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
