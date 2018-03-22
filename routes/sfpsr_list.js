@@ -6,7 +6,7 @@ const moment = require('moment')
 router.get('/', function(req, res, next) {
     MongoClient.connect(process.env.ANALYTICS_MONGO_CONNECTION || "mongodb://localhost", function(err, db) {
         if (err) throw err;
-        var dbo = db.db("analytics");
+        var dbo = db.db(process.env.ANALYTICS_MONGO_DATABASE || "analytics");
         dbo.collection("shortFormatReports").find({}).sort({ _id: -1 }).toArray(function(err, result) {
             if (err) throw err;
             console.log(result);
