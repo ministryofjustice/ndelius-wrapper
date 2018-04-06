@@ -20,7 +20,8 @@ const addOffender = require('./routes/add_offender')
 const addContact = require('./routes/add_contact')
 const offenderDetails = require('./routes/offender_details')
 const searchAnalytics = require('./routes/search_analytics')
-const feedback = require('./routes/feedback')
+const nationalSearchFeedback = require('./routes/national_search_feedback')
+const sfpsrFeedback = require('./routes/sfpsr_feedback')
 const healthcheck = require('./routes/healthcheck')
 const analytics = require('./routes/analytics')
 
@@ -57,7 +58,8 @@ app.use('/add_offender', addOffender);
 app.use('/add_contact', addContact);
 app.use('/offender_details', offenderDetails)
 app.use('/search_analytics', searchAnalytics)
-app.use('/feedback', feedback)
+app.use('/national_search_feedback', nationalSearchFeedback)
+app.use('/sfpsr_feedback', sfpsrFeedback)
 app.use('/healthcheck', healthcheck)
 app.use('/analytics', analytics)
 
