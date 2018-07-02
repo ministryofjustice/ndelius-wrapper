@@ -54,7 +54,9 @@ router.get('/', function(req, res, next) {
         const dateOfBirth = 'twqjuUftRY5xaB556mJb6A%3D%3D'
         const crn = 'v5LH8B7tJKI7fEc9uM76SQ%3D%3D'
         const age = 'RRioaTyIHLGnja2CBw8hqg%3D%3D'
-        res.render('sfpsr', {baseUrl: process.env.NEW_TECH_BASE_URL, name, dateOfBirth, age, crn});
+        const addressAsLine = 'This\naddress param\nshould be \nignored\n'
+        const address = encodeURIComponent(encrypt(addressAsLine))
+        res.render('sfpsr', {baseUrl: process.env.NEW_TECH_BASE_URL, name, dateOfBirth, age, crn, address});
     }
 
 });
