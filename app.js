@@ -13,6 +13,11 @@ const sfpsr = require('./routes/sfpsr')
 const sfpsrList = require('./routes/sfpsr_list')
 const sfpsrUpdate = require('./routes/sfpsr_update')
 const sfpsrDelete = require('./routes/sfpsr_delete')
+const paroleParom1Report = require('./routes/paroleParom1Report')
+const paroleParom1ReportList = require('./routes/paroleParom1Report_list')
+const paroleParom1ReportUpdate = require('./routes/paroleParom1Report_update')
+const paroleParom1ReportDelete = require('./routes/paroleParom1Report_delete')
+const documentList = require('./routes/document_list')
 const pdf = require('./routes/pdf')
 const viewPdf = require('./routes/view_pdf')
 const legacySearch = require('./routes/legacy_search')
@@ -51,6 +56,11 @@ app.use('/sfpsr', sfpsr);
 app.use('/sfpsr_list', sfpsrList);
 app.use('/sfpsr_update', sfpsrUpdate);
 app.use('/sfpsr_delete', sfpsrDelete);
+app.use('/paroleParom1Report', paroleParom1Report);
+app.use('/paroleParom1Report_list', paroleParom1ReportList);
+app.use('/paroleParom1Report_update', paroleParom1ReportUpdate);
+app.use('/paroleParom1Report_delete', paroleParom1ReportDelete);
+app.use('/document_list', documentList);
 app.use('/pdf', pdf);
 app.use('/view_pdf', viewPdf);
 app.use('/legacy_search', legacySearch);

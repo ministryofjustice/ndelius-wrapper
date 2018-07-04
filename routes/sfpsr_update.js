@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
         if (err) throw err;
         const dbo = db.db(process.env.ANALYTICS_MONGO_DATABASE || "analytics");
         const query = {_id: ObjectId(req.query.id)}
-        dbo.collection("shortFormatReports").findOne(query, (err, result) => {
+        dbo.collection("reports").findOne(query, (err, result) => {
             if (err) throw err;
             db.close();
             res.render('sfpsr_update', { baseUrl: process.env.NEW_TECH_BASE_URL, documentId: encodeURIComponent(encrypt(result._id.toHexString())) });

@@ -7,14 +7,13 @@ const request = require('request');
 router.get('/', function(req, res, next) {
     MongoClient.connect(process.env.ANALYTICS_MONGO_CONNECTION || "mongodb://localhost", function(err, db) {
         if (err) throw err;
-        var dbo = db.db(process.env.ANALYTICS_MONGO_DATABASE || "analytics");
-
+        const dbo = db.db(process.env.ANALYTICS_MONGO_DATABASE || "analytics");
 
         const renderData = (err, result) => {
             if (err) throw err;
             console.log(result);
             db.close();
-            res.render('sfpsr_list', { documents: result.map(document => {return {
+            res.render('paroleParom1Report_list', { documents: result.map(document => {return {
                     filename: document.filename,
                     onBehalfOfUser: document.onBehalfOfUser,
                     crn: document.crn,
@@ -22,6 +21,7 @@ router.get('/', function(req, res, next) {
                     timestamp: moment(ObjectID(document._id).getTimestamp()).format('DD/MM/YYYY')
                 }}) });
         }
+
 
         if (req.query.offenderId) {
             const offenderId = req.query.offenderId
@@ -32,14 +32,19 @@ router.get('/', function(req, res, next) {
                 const document = JSON.parse(body)
                 const offender = document._source
                 const crn = offender.otherIds.crn
-                dbo.collection("reports").find({crn: crn, filename: 'shortFormatPreSentenceReport.pdf'}).sort({ _id: -1 }).toArray(renderData);
+                dbo.collection("reports").find({crn: crn, filename: 'paroleParom1Report.pdf'}).sort({ _id: -1 }).toArray(renderData);
             });
 
         } else {
-            dbo.collection("reports").find({filename: 'shortFormatPreSentenceReport.pdf'}).sort({ _id: -1 }).toArray(renderData);
+            dbo.collection("reports").find({filename: 'paroleParom1Report.pdf'}).sort({ _id: -1 }).toArray(renderData);
         }
+
     });
+
 
 });
 
 module.exports = router;
+
+
+
