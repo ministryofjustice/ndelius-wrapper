@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
         dbo.collection("reports").deleteOne(query, (err) => {
             if (err) throw err;
             db.close();
-            res.redirect('/sfpsr_list');
+            res.redirect('/paroleParom1Report_list');
         });
     });
 
