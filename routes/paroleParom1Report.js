@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
     const t = encodeURIComponent(encrypt(`${epochMills}`));
     const user = encodeURIComponent(encrypt('testUserNPS'));
     const onBehalfOfUser = encodeURIComponent(encrypt('Test User'));
-    const entityId = encodeURIComponent(encrypt('fakeentityid'));
+    const entityId = encodeURIComponent(encrypt('7654321'));
 
     if (req.query.offenderId) {
         const offenderId = req.query.offenderId
