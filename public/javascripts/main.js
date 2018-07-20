@@ -19,12 +19,14 @@ function receiveMessage(event)
             case 'addContact':
                 window.location = '/add_contact?offenderId=' + eventData.data
                 break
+            case 'documentList':
+                window.location = '/sfpsr_list'
+                break
             default:
                 console.log(eventData)
         }
     } else {
         console.log(event.data)
-        window.location = '/sfpsr_list'
 
     }
 }
