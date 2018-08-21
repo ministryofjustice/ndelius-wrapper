@@ -20,7 +20,10 @@ function receiveMessage(event)
                 window.location = '/add_contact?offenderId=' + eventData.data
                 break
             case 'documentList':
-                window.location = '/sfpsr_list'
+                if (window.location.href.indexOf('sfpsr') > -1)
+                    window.location = '/sfpsr_list'
+                else
+                    window.location = '/paroleParom1Report_list'
                 break
             default:
                 console.log(eventData)
