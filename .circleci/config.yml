@@ -43,10 +43,14 @@ jobs:
         name: Deploy to Elastic Beanstalk
         command: |
             eb deploy --label $CIRCLE_BUILD_NUM
+  release-approval:
+    - run:
+        command: |
+            echo Waiting for approval
   release:
     - run:
         command: |
-            echo Doing a release
+            echo Doing release
 
 workflows:
     version: 2
@@ -59,7 +63,10 @@ workflows:
                 filters:
                     branches:
                       only: master
-            - release:
+            - release-approval:
                 type: approval
                 requires:
                     - deploy
+            - release:
+                requires:
+                    - release-approval
