@@ -43,13 +43,6 @@ jobs:
         name: Deploy to Elastic Beanstalk
         command: |
             eb deploy --label $CIRCLE_BUILD_NUM
-  hold:
-    docker:
-    - image: circleci/node:7.10
-    steps:
-    - run:
-        command: |
-            echo Waiting for approval
   release:
     docker:
     - image: circleci/node:7.10
