@@ -64,7 +64,6 @@ workflows:
                     branches:
                       only: master
             - hold:
-                type: approval
                 requires:
                     - deploy
             - release:
