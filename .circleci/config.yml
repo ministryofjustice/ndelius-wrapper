@@ -43,6 +43,10 @@ jobs:
         name: Deploy to Elastic Beanstalk
         command: |
             eb deploy --label $CIRCLE_BUILD_NUM
+  release:
+    - type: shell
+      command: |
+        git tag -a $CIRCLE_BUILD_NUM
 
 workflows:
     version: 2
@@ -55,3 +59,10 @@ workflows:
                 filters:
                     branches:
                       only: master
+            - hold:
+                type: approval
+                requires:
+                    - deploy
+            - release:
+                requires:
+                - hold
