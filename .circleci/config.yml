@@ -44,10 +44,12 @@ jobs:
         command: |
             eb deploy --label $CIRCLE_BUILD_NUM
   hold:
+    steps:
     - run:
         command: |
             echo Waiting for approval
   release:
+    steps:
     - run:
         command: |
             echo Doing release
@@ -64,6 +66,7 @@ workflows:
                     branches:
                       only: master
             - hold:
+                type: approval
                 requires:
                     - deploy
             - release:
