@@ -43,13 +43,6 @@ jobs:
         name: Deploy to Elastic Beanstalk
         command: |
             eb deploy --label $CIRCLE_BUILD_NUM
-  release:
-    docker:
-    - image: circleci/node:7.10
-    steps:
-    - run:
-        command: |
-            echo Doing release
 
 workflows:
     version: 2
@@ -62,10 +55,3 @@ workflows:
                 filters:
                     branches:
                       only: master
-            - hold:
-                type: approval
-                requires:
-                    - deploy
-            - release:
-                requires:
-                    - hold
