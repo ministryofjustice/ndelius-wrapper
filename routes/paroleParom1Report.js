@@ -23,8 +23,8 @@ router.get('/', function(req, res, next) {
         });
 
     } else {
-        const crn = encodeURIComponent(encrypt('fakecrn'));
-        res.render('paroleParom1Report', {baseUrl: process.env.NEW_TECH_BASE_URL, crn, t, user, onBehalfOfUser, entityId});
+            const crn = req.query.gender === 'female' ? encodeURIComponent(encrypt('X54321')) : encodeURIComponent(encrypt('fakecrn'));
+            res.render('paroleParom1Report', {baseUrl: process.env.NEW_TECH_BASE_URL, crn, t, user, onBehalfOfUser, entityId});
     }
 
 });
