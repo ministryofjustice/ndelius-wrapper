@@ -9,6 +9,7 @@ const sassMiddleware = require('node-sass-middleware')
 
 const index = require('./routes/index')
 const search = require('./routes/search')
+const featureSwitch = require('./routes/featureSwitch')
 const sfpsr = require('./routes/sfpsr')
 const sfpsrList = require('./routes/sfpsr_list')
 const sfpsrUpdate = require('./routes/sfpsr_update')
@@ -52,6 +53,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/search', search);
+app.use('/featureSwitch', featureSwitch);
 app.use('/sfpsr', sfpsr);
 app.use('/sfpsr_list', sfpsrList);
 app.use('/sfpsr_update', sfpsrUpdate);
