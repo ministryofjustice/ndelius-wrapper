@@ -24,6 +24,12 @@ const viewPdf = require('./routes/view_pdf')
 const legacySearch = require('./routes/legacy_search')
 const addOffender = require('./routes/add_offender')
 const addContact = require('./routes/add_contact')
+const offenderAliases = require('./routes/offender_aliases')
+const offenderAddresses = require('./routes/offender_addresses')
+const offenderPersonalCircumstances = require('./routes/offender_personal_circumstances')
+const offenderRegistrations = require('./routes/offender_registrations')
+const transferInactiveOffender = require('./routes/transfer_inactive_offender')
+const offenderEvent = require('./routes/offender_event')
 const offenderDetails = require('./routes/offender_details')
 const searchAnalytics = require('./routes/search_analytics')
 const nationalSearchFeedback = require('./routes/national_search_feedback')
@@ -68,7 +74,13 @@ app.use('/view_pdf', viewPdf);
 app.use('/legacy_search', legacySearch);
 app.use('/add_offender', addOffender);
 app.use('/add_contact', addContact);
+app.use('/offender_aliases', offenderAliases);
+app.use('/offender_addresses', offenderAddresses);
 app.use('/offender_details', offenderDetails)
+app.use('/offender_personal_circumstances', offenderPersonalCircumstances)
+app.use('/offender_registrations', offenderRegistrations)
+app.use('/offender_event', offenderEvent)
+app.use('/transfer_inactive_offender', transferInactiveOffender)
 app.use('/search_analytics', searchAnalytics)
 app.use('/national_search_feedback', nationalSearchFeedback)
 app.use('/sfpsr_feedback', sfpsrFeedback)
