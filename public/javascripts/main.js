@@ -19,6 +19,24 @@ function receiveMessage(event)
             case 'addContact':
                 window.location = '/add_contact?offenderId=' + eventData.data
                 break
+            case 'viewOffenderAliases':
+                window.location = '/offender_aliases?offenderId=' + eventData.data
+                break
+            case 'viewOffenderAddresses':
+                window.location = '/offender_addresses?offenderId=' + eventData.data
+                break
+            case 'viewOffenderPersonalCircumstances':
+                window.location = '/offender_personal_circumstances?offenderId=' + eventData.data
+                break
+            case 'viewOffenderRegistrations':
+                window.location = '/offender_registrations?offenderId=' + eventData.data
+                break
+            case 'viewEvent':
+                window.location = '/offender_event?offenderId=' + eventData.data.offenderId + '&eventId=' + eventData.data.eventId
+                break
+            case 'transferInactiveOffender':
+                window.location = '/transfer_inactive_offender?offenderId=' + eventData.data
+                break
             case 'documentList':
                 if (window.location.href.indexOf('sfpsr') > -1)
                     window.location = '/sfpsr_list'
