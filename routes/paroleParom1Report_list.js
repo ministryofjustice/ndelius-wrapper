@@ -32,11 +32,11 @@ router.get('/', function(req, res, next) {
                 const document = JSON.parse(body)
                 const offender = document._source
                 const crn = offender.otherIds.crn
-                dbo.collection("reports").find({crn: crn, filename: 'paroleParom1Report.pdf'}).sort({ _id: -1 }).toArray(renderData);
+                dbo.collection("reports").find({crn: crn, filename: /paroleParom1Report.*\.pdf/}).sort({ _id: -1 }).toArray(renderData);
             });
 
         } else {
-            dbo.collection("reports").find({filename: 'paroleParom1Report.pdf'}).sort({ _id: -1 }).toArray(renderData);
+            dbo.collection("reports").find({filename: /paroleParom1Report.*\.pdf/}).sort({ _id: -1 }).toArray(renderData);
         }
 
     });
