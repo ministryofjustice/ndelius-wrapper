@@ -43,6 +43,10 @@ jobs:
         name: Deploy to Elastic Beanstalk
         command: |
             eb deploy --label $CIRCLE_BUILD_NUM
+    - run:
+        name: Deploy to Elastic Smoketest Beanstalk
+        command: |
+            eb deploy delius-wrapper-smoke-test --label $CIRCLE_BUILD_NUM
 
 workflows:
     version: 2
